@@ -104,18 +104,28 @@ let pokemonRepository = (function() {
     },
     add: function(pokemon) {
       pokemonList.push(pokemon);
-    }
+    },
+    addListItem: function(pokemon) {
+      let ul = document.querySelector('.pokemon-list');
+      let listItem = document.createElement('li');
+    
+      let button = document.createElement('button');
+      button.innerText = pokemon.name;
+      button.classList.add('poke-button');
+      button.addEventListener('click', function(event) {
+        pokemonRepository.showDetails(pokemon);
+      })
+    
+      listItem.appendChild(button);
+    
+      ul.appendChild(listItem);
+    },
+    showDetails: function(pokemon) {
+      console.log(pokemon)
+    },
   }
 })();
 
-document.write(`<ul>`);
 pokemonRepository.getAll().forEach(function(pokemon) {
-  let pokemonText = `${pokemon.name} (height: ${pokemon.height})`;
-
-  if (pokemon.height > 0.4) {
-    pokemonText = `${pokemonText} - Wow, that's big!`;
-  }
-  
-  document.write(`<li>${pokemonText}</li>`);
+  pokemonRepository.addListItem(pokemon)
 });
-document.write(`</ul>`);
