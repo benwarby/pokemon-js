@@ -98,14 +98,13 @@ let pokemonList = [
 ];
 
 document.write(`<ul>`);
-for (let i = 0; i < pokemonList.length; i++) {
-  let pokemon = pokemonList[i];
+pokemonList.forEach(function(pokemon) {
   let pokemonText = `${pokemon.name} (height: ${pokemon.height})`;
 
   if (pokemon.height > 0.4) {
-    pokemonText = `${pokemonText} - Wow, that's big!`
+    pokemonText = `${pokemonText} - Wow, that's big!`;
   }
   
-  document.write(`<li>${pokemonText}</li>`)
-}
+  document.write(`<li>${pokemonText}</li>`);
+});
 document.write(`</ul>`);
