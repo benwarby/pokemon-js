@@ -96,3 +96,10 @@ let pokemonList = [
     spDef: 35,
   },
 ];
+
+document.write(`<ul>`);
+for (let i = 0; i < pokemonList.length; i++) {
+  let pokemon = pokemonList[i];
+  document.write(`<li>${pokemon.name} (height: ${pokemon.height})</li>`)  
+}
+document.write(`</ul>`);
