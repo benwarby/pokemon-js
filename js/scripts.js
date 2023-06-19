@@ -100,6 +100,12 @@ let pokemonList = [
 document.write(`<ul>`);
 for (let i = 0; i < pokemonList.length; i++) {
   let pokemon = pokemonList[i];
-  document.write(`<li>${pokemon.name} (height: ${pokemon.height})</li>`)  
+  let pokemonText = `${pokemon.name} (height: ${pokemon.height})`;
+
+  if (pokemon.height > 0.4) {
+    pokemonText = `${pokemonText} - Wow, that's big!`
+  }
+  
+  document.write(`<li>${pokemonText}</li>`)
 }
 document.write(`</ul>`);
